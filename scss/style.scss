@@ -1,0 +1,505 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+@mixin res992 {
+    @media screen and (max-width:992px) {
+        @content;
+    }
+}
+
+@mixin res772 {
+    @media screen and (max-width:772px) {
+        @content;
+    }
+}
+
+@mixin res480 {
+    @media screen and (max-width:480px) {
+        @content;
+    }
+}
+
+
+$w: #FFFFFF;
+$r: #9B1101;
+$b: #000000;
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+}
+
+.fadeIn{
+    position:fixed;
+    top: 0;
+    width: 100%;
+    background:#cb8161;
+    animation: sc 0.9s;
+    z-index:9999;
+}
+@keyframes sc{
+    0%{transform: translateY(-100%);}
+    100%{transform: translateY(0%);}
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500;
+}
+
+.banner {
+    background: url(../image/bg-header.jpg);
+    height: 1000px;
+    width:100%;
+    background-position: center;
+    background-size: cover;
+    header {
+
+        ul {
+            margin-left: 100px !important;
+
+            li {
+                a {
+                    font-size: 12px;
+                    font-weight: 500;
+                    color: $b;
+                    padding-right: 15px;
+                }
+            }
+        }
+
+    }
+
+    .btn.btn-outline-success {
+        background: #D31600;
+        color: $w;
+        padding: 0px 15px;
+        border: none;
+        border-radius: 30px;
+
+        &:hover {
+            background: $b;
+        }
+
+        span {
+            font-size: 18px;
+            font-weight: 400;
+            line-height: 45px;
+            padding-left: 5px;
+        }
+
+        img {
+            padding-right: 3px;
+        }
+    }
+
+    .navbar.navbar-expand-lg.bg-light {
+        background: transparent !important;
+    }
+
+    .inner {
+    text-align: center;
+    margin-top:100px;
+
+    img{
+        margin:20px 0px;
+    }
+    h1 {
+        font-size: 50px;
+       width: 50%;
+       margin: auto;
+
+       @include res992{
+        width:70%;
+       }
+
+       @include res772{
+        font-size:40px;
+       }
+
+       @include res480{
+        font-size:25px;
+       }
+    }
+}
+
+}
+
+
+//start Home page css
+
+.Home-page {
+    padding-bottom: 40px;
+
+    .row.text-center.p-5 {
+        h2 {
+            color: $b;
+            padding-bottom: 10px;
+        }
+        p{
+            width: 60%;
+            margin: auto;
+
+            @include res772{
+                width: 80%;
+            }
+
+            @include res480{
+                width:100%;
+            }
+        }
+    }
+}
+
+.page-box {
+    height: 300px;
+    text-align: center;
+    margin-bottom: 30px;
+
+    .img-box {
+        max-height: 300px;
+        overflow: hidden;
+
+        img {
+            margin: auto;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+
+        }
+    }
+
+    h4 {
+        padding: 10px;
+
+    }
+}
+
+.img-box:hover img {
+    animation: su 4s linear;
+}
+
+@keyframes su {
+    0% {
+        transform: translateY(0%);
+    }
+
+    100% {
+        transform: translateY(-100%);
+    }
+}
+
+// start Design css
+
+.Beauty-design {
+    border-top: 1px solid #0000002e;
+    margin-top: 40px;
+
+    .title-2 {
+        font-size: 40px;
+        width:70%;
+        margin: auto;
+
+        @include res772 {
+                font-size: 30px;
+        }
+
+        @include res480{
+            font-size:20px;
+        }
+    }
+
+    .nav-tabs .nav-link.active {
+        color: $b;
+        border-bottom: 1px solid $b;
+
+    }
+
+    .pb-3 {
+        border-bottom: none;
+
+    }
+
+}
+
+.nav-tabs .nav-link {
+    padding: 0;
+    margin-top: 20px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    font-size: 18px;
+    color: #00000091;
+    border: none;
+
+    &:hover {
+        color: $b;
+    }
+}
+
+.inner-box {
+    img {
+        width: 100%;
+        height: 100%;
+
+    }
+
+    p {
+        padding: 30px 0px;
+    }
+}
+
+.img {
+    position: relative;
+
+}
+
+.img::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.5);
+    height: 100%;
+    width: 100%;
+    transform: scale(0.5);
+    opacity: 0;
+    z-index: 2;
+    transition: all 0.3s linear;
+}
+
+.img:hover::before {
+    transform: scale(1);
+    opacity: 1;
+}
+
+.carousel-indicators [data-bs-target] {
+    background-color: $b;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    transform: translateY(30px);
+}
+
+.search {
+    background: url(../image/bg-search.jpg);
+    width: 100%;
+
+}
+
+// start fee css
+.fee {
+
+    @include res772{
+        overflow-x: auto ;
+    }
+    .row.text-center.p-5 {
+        h2 {
+            color: $b;
+            padding-bottom: 10px;
+            width:40%;
+            margin: auto;
+
+            @include res772{
+                font-size:25px;
+                width: 60%;
+            }
+
+            @include res480{
+                font-size:20px;
+                width: 100%;
+            }
+        }
+
+        p {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 24px;
+            color: $b;
+
+            @include res772{
+                font-size: 20px;
+            }
+        }
+    }
+
+    tr {
+        th {
+            text-align: center;
+            text-transform: uppercase;
+            background: #CB8161;
+            padding: 20px;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 18px;
+            color: $w;
+
+            @include res772{
+                font-size:16px;
+                padding:10px;
+            }
+            @include res480{
+                padding: 0px;
+            }
+        }
+
+        td {
+            padding: 10px;
+
+           
+            .check-box {
+                position: relative;
+                display: inline-block;
+                width: 20px;
+                height: 20px;
+                background: #00800080;
+                border-radius: 50%;
+
+                i {
+                    position: absolute;
+                    top: -90%;
+                    left: -20%;
+                    font-size: 35px;
+                    color: #008000db;
+                }
+            }
+        }
+    }
+}
+
+table,
+th,
+td {
+    border: 1px solid rgb(190, 186, 186);
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+table {
+    width: 100%;
+    height: auto;
+    text-align: center;
+}
+
+tr:nth-child(even) {
+    background: #F6F6F6;
+}
+
+tfoot {
+
+
+    tr {
+    
+        :nth-child(4){
+            background:green;
+        }
+
+     
+
+        td {
+          
+            text-transform: capitalize;
+            font-size: 18px;
+            font-weight: 700;
+            line-height: 1.4;  
+            
+            @include res772{
+                font-weight: 500;
+                font-size: 16px;
+            }
+
+            @include res480{
+               
+                padding: 0px;
+                font-weight: 400;
+                font-size:16px;
+               }
+
+        }
+    }
+}
+td:first-child{
+    text-align: left !important;
+    padding-left:50px !important;
+}
+
+//Start footer css
+footer{
+    background: url(../image/bg-footer.jpg);
+    width: 100%;
+    padding-top: 175px;
+    padding-bottom: 160px;
+    background-position: center;
+    background-size: cover;
+}
+.card-body{
+ width:60%;
+margin-left: 30px;
+  a{
+    border: none;
+    border-radius:0;
+    background:#C98060;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing:3px;
+    padding:10px 15px;
+    
+    &:hover{
+        background: $b;
+    }
+    }
+    h5{
+        font-size: 80px;
+        margin-bottom: 15px;
+        color: #cb8161;
+
+        @include res992{
+            font-size:60px;
+        }
+
+    }
+    p{
+        font-family:'Cormorant Garamond', serif ;
+        font-size: 24px;
+        color: $b;
+        margin-bottom: 20px;
+    }
+}
+.card{
+    border: none ;
+
+}
+.up{
+    height:50px;
+    width:50px;
+    background:$r;
+    position: fixed;
+    right:40px;
+    bottom:40px;
+    border-radius: 50% 50% ;
+    i{
+        font-size:24px;
+        position: absolute;
+        left:13px;
+        top:7px;
+        color:$w;
+    }
+}
+ 
